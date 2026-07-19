@@ -595,7 +595,7 @@ ul { list-style: none; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 330px 260px;
+  grid-template-rows: 330px 260px 300px;
   gap: 4px;
   margin-top: 68px;
 }
@@ -622,6 +622,8 @@ ul { list-style: none; }
 .gi-4 { grid-column: 1/5;  }
 .gi-5 { grid-column: 5/9;  }
 .gi-6 { grid-column: 9/13; }
+.gi-7 { grid-column: 1/7;  }
+.gi-8 { grid-column: 7/13; }
 
 /* =============================================
    RUTA  — CREAM section
@@ -831,10 +833,11 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   .contact-grid { grid-template-columns: 1fr; gap: 52px; }
   .gallery-grid {
     grid-template-columns: repeat(6,1fr);
-    grid-template-rows: 280px 220px;
+    grid-template-rows: 280px 220px 240px;
   }
   .gi-1{grid-column:1/7;} .gi-2{grid-column:1/4;} .gi-3{grid-column:4/7;}
   .gi-4{grid-column:1/3;} .gi-5{grid-column:3/5;} .gi-6{grid-column:5/7;}
+  .gi-7{grid-column:1/4;} .gi-8{grid-column:4/7;}
 }
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
@@ -848,7 +851,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   .footer-top { flex-direction: column; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .gi-1,.gi-2,.gi-3,.gi-4,.gi-5,.gi-6 { grid-column: auto; grid-row: auto; }
+  .gi-1,.gi-2,.gi-3,.gi-4,.gi-5,.gi-6,.gi-7,.gi-8 { grid-column: auto; grid-row: auto; }
   .gallery-grid .gallery-item img { aspect-ratio: 1; height: 220px; }
 }
 @media (max-width: 480px) {
@@ -998,7 +1001,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       <article class="room-card reveal">
         <div class="room-card-inner">
           <img
-            src="https://toyotasantaclara.com.mx/Assets/ModelosNuevos/Img/Modelos/yaris-sedan/26/Seguridad/Web/seguridad.jpg"
+            src="img/12.jpeg"
             data-i18n-alt="fleet.card1.imgAlt"
             alt="Sedán ejecutivo para traslado privado de 1 a 3 pasajeros a Chiquilá"
             class="room-card-img"
@@ -1022,7 +1025,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       <article class="room-card reveal d1">
         <div class="room-card-inner">
           <img
-            src="img/4-7.jpeg"
+            src="img/14.jpeg"
             data-i18n-alt="fleet.card2.imgAlt"
             alt="Van de transporte turístico privado Transfer Holbox para 4 a 5 pasajeros"
             class="room-card-img"
@@ -1187,6 +1190,18 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         <img src="img/9.jpeg"
              data-i18n-alt="gallery.g6.alt" alt="Palapa colorida sobre el mar, uno de los rincones icónicos de Holbox" loading="lazy">
         <div class="gi-label" data-i18n="gallery.g6.label">Rincones inolvidables</div>
+      </div>
+
+      <div class="gallery-item gi-7">
+        <img src="img/13.jpeg"
+             data-i18n-alt="gallery.g7.alt" alt="Playa de Cancún con palapas de paja y mar turquesa, llena de visitantes" loading="lazy">
+        <div class="gi-label" data-i18n="gallery.g7.label">Playa y palapas</div>
+      </div>
+
+      <div class="gallery-item gi-8">
+        <img src="img/15.jpeg"
+             data-i18n-alt="gallery.g8.alt" alt="Flamencos rosados y pelícanos en las aguas de Holbox" loading="lazy">
+        <div class="gi-label" data-i18n="gallery.g8.label">Fauna de Holbox</div>
       </div>
 
     </div>
@@ -1378,6 +1393,13 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
             <div class="ch-info"><strong data-i18n="contact.callStrong">Llamada Directa</strong><span data-i18n="contact.callSpan">(984) 108-3794 · Habla con nosotros</span></div>
             <svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
+          <a href="mailto:Holboxturistico@gmail.com" class="channel" data-i18n-aria="contact.emailAriaLabel" aria-label="Correo">
+            <div class="ch-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+            </div>
+            <div class="ch-info"><strong data-i18n="contact.emailStrong">Correo Electrónico</strong><span>Holboxturistico@gmail.com</span></div>
+            <svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
         </div>
         <div class="contact-quote">
           <p data-i18n="contact.quote">"Confirmamos tu reservación por WhatsApp en menos de una hora. Así de simple debe ser reservar tu traslado."</p>
@@ -1424,6 +1446,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       <ul>
         <li><a href="https://wa.me/529841083794" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="tel:+529841083794">(984) 108-3794</a></li>
+        <li><a href="mailto:Holboxturistico@gmail.com">Holboxturistico@gmail.com</a></li>
         <li><a href="#testimonios" data-i18n="footer.reviews">Reseñas</a></li>
         <li><a href="#contact" data-i18n="footer.form">Formulario</a></li>
       </ul>
@@ -1515,7 +1538,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         g3: { alt: 'Embarcación cruzando aguas turquesas rumbo a Isla Holbox', label: 'Cruce en ferry a Holbox' },
         g4: { alt: 'Letrero colorido de bienvenida a Holbox en la playa', label: 'Bienvenida a Holbox' },
         g5: { alt: 'Ambiente isleño de Holbox con bicicletas y comercios locales', label: 'Ambiente isleño' },
-        g6: { alt: 'Palapa colorida sobre el mar, uno de los rincones icónicos de Holbox', label: 'Rincones inolvidables' }
+        g6: { alt: 'Palapa colorida sobre el mar, uno de los rincones icónicos de Holbox', label: 'Rincones inolvidables' },
+        g7: { alt: 'Playa de Cancún con palapas de paja y mar turquesa, llena de visitantes', label: 'Playa y palapas' },
+        g8: { alt: 'Flamencos rosados y pelícanos en las aguas de Holbox', label: 'Fauna de Holbox' }
       },
       route: {
         tag: 'La Ruta', title: 'Aeropuerto de Cancún → <em>Chiquilá</em>',
@@ -1548,6 +1573,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         otherTag: 'Otras Formas de Contacto', otherTitle: 'También <em>puedes</em><br>escribirnos así',
         waAriaLabel: 'WhatsApp', waSpan: '(984) 108-3794 · Respuesta inmediata',
         callAriaLabel: 'Llamada', callStrong: 'Llamada Directa', callSpan: '(984) 108-3794 · Habla con nosotros',
+        emailAriaLabel: 'Correo', emailStrong: 'Correo Electrónico',
         quote: '"Confirmamos tu reservación por WhatsApp en menos de una hora. Así de simple debe ser reservar tu traslado."',
         cite: '— Equipo Transfer Holbox',
         alertMissing: 'Por favor completa: nombre, teléfono y fecha del traslado.',
@@ -1626,7 +1652,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         g3: { alt: 'Boat crossing turquoise waters toward Holbox Island', label: 'Ferry crossing to Holbox' },
         g4: { alt: 'Colorful welcome sign to Holbox on the beach', label: 'Welcome to Holbox' },
         g5: { alt: 'Holbox island atmosphere with bicycles and local shops', label: 'Island atmosphere' },
-        g6: { alt: 'Colorful palapa over the sea, one of Holbox\'s iconic spots', label: 'Unforgettable spots' }
+        g6: { alt: 'Colorful palapa over the sea, one of Holbox\'s iconic spots', label: 'Unforgettable spots' },
+        g7: { alt: 'Cancún beach with straw palapas and turquoise sea, full of visitors', label: 'Beach and palapas' },
+        g8: { alt: 'Pink flamingos and pelicans in the waters of Holbox', label: 'Holbox wildlife' }
       },
       route: {
         tag: 'The Route', title: 'Cancún Airport → <em>Chiquilá</em>',
@@ -1659,6 +1687,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         otherTag: 'Other Ways to Contact', otherTitle: 'You can <em>also</em><br>reach us this way',
         waAriaLabel: 'WhatsApp', waSpan: '(984) 108-3794 · Immediate response',
         callAriaLabel: 'Call', callStrong: 'Direct Call', callSpan: '(984) 108-3794 · Talk to us',
+        emailAriaLabel: 'Email', emailStrong: 'Email Address',
         quote: '"We confirm your booking via WhatsApp in under an hour. That\'s how simple booking your transfer should be."',
         cite: '— Transfer Holbox Team',
         alertMissing: 'Please fill in: name, phone, and transfer date.',
