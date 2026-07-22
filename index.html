@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.">
-<meta name="keywords" content="transfer holbox, traslado cancun chiquila, transporte privado a holbox, taxi chiquila, van aeropuerto cancun holbox, shuttle isla holbox, como llegar a holbox desde cancun">
-<meta property="og:title" content="Transfer Holbox | Transporte Turístico Privado">
+<meta name="description" content="Holbox Turístico: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.">
+<meta name="keywords" content="holbox turistico, traslados holbox turistico, traslado cancun chiquila, transporte privado a holbox, taxi chiquila, van aeropuerto cancun holbox, shuttle isla holbox, como llegar a holbox desde cancun">
+<meta property="og:title" content="Holbox Turístico | Transporte Turístico Privado">
 <meta property="og:description" content="Tu conexión directa entre el Aeropuerto de Cancún y el muelle de Chiquilá. Servicio privado, puntual y sin paradas.">
-<title>Transfer Holbox | Traslado Privado Aeropuerto Cancún – Chiquilá</title>
+<title>Holbox Turístico | Traslado Privado Aeropuerto Cancún – Chiquilá</title>
+<link rel="icon" type="image/png" href="img/logo-holbox-turistico.png">
+<link rel="apple-touch-icon" href="img/logo-holbox-turistico.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -61,17 +63,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ul { list-style: none; }
 
 /* =============================================
-   BRAND MARK  — logotipo tipográfico (sin logo gráfico)
+   BRAND MARK  — logo Holbox Turístico
 ============================================= */
 .brand-mark {
   display: flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--white);
-  font-family: var(--font-serif); font-weight: 600;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(14,165,164,0.35);
-  letter-spacing: 0.5px;
+}
+.brand-mark img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
 }
 
 /* =============================================
@@ -866,9 +865,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <body>
 
 <!-- ============ LOADER ============ -->
-<div id="loader" role="status" data-i18n-aria="loader.ariaLabel" aria-label="Cargando Transfer Holbox">
+<div id="loader" role="status" data-i18n-aria="loader.ariaLabel" aria-label="Cargando Holbox Turístico">
   <div class="loader-logo-wrap">
-    <p class="loader-brand">Transfer <em>Holbox</em></p>
+    <p class="loader-brand">Holbox <em>Turístico</em></p>
   </div>
   <p class="loader-tag" data-i18n="loader.tag">Transporte Turístico Privado</p>
   <div class="loader-progress"><div class="loader-progress-fill"></div></div>
@@ -877,7 +876,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ MOBILE MENU ============ -->
 <div id="mobile-menu" role="dialog" data-i18n-aria="mobile.ariaLabel" aria-label="Menú principal">
   <div class="mob-logo">
-    <div class="brand-mark">TH</div>
+    <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="92" height="92"></div>
   </div>
   <div class="lang-switch" role="group" aria-label="Idioma / Language">
     <button type="button" class="lang-btn" data-lang="es">ES</button>
@@ -892,10 +891,10 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ NAV ============ -->
 <nav id="nav" role="navigation" data-i18n-aria="nav.ariaLabel" aria-label="Navegación principal">
-  <a href="#" class="nav-logo" data-i18n-aria="nav.logoAria" aria-label="Transfer Holbox - Inicio">
-    <div class="brand-mark">TH</div>
+  <a href="#" class="nav-logo" data-i18n-aria="nav.logoAria" aria-label="Holbox Turístico - Inicio">
+    <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="46" height="46"></div>
     <div class="nav-logo-text">
-      <strong>Transfer Holbox</strong>
+      <strong>Holbox Turístico</strong>
       <small data-i18n="nav.tagline">Transporte Turístico</small>
     </div>
   </a>
@@ -919,7 +918,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 </nav>
 
 <!-- ============ HERO ============ -->
-<section id="hero" data-i18n-aria="hero.ariaLabel" aria-label="Transfer Holbox — Traslado privado del Aeropuerto de Cancún a Chiquilá">
+<section id="hero" data-i18n-aria="hero.ariaLabel" aria-label="Holbox Turístico — Traslado privado del Aeropuerto de Cancún a Chiquilá">
   <div class="hero-overlay" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
   <div class="hero-ring ring-1" aria-hidden="true"></div>
@@ -966,7 +965,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       <div class="about-content">
         <p class="section-tag no-lines reveal" data-i18n="about.tag">Quiénes Somos</p>
         <h2 class="about-title reveal d1" data-i18n="about.title">Tu conexión <em>directa</em><br>y segura a Holbox</h2>
-        <p class="about-text reveal d2" data-i18n="about.text1">En Transfer Holbox nos dedicamos a una sola ruta: Aeropuerto Internacional de Cancún – Chiquilá. Al enfocarnos en un solo trayecto lo dominamos por completo — conocemos los mejores horarios, evitamos el tráfico y te dejamos justo en el muelle, listo para cruzar a la isla.</p>
+        <p class="about-text reveal d2" data-i18n="about.text1">En Holbox Turístico nos dedicamos a una sola ruta: Aeropuerto Internacional de Cancún – Chiquilá. Al enfocarnos en un solo trayecto lo dominamos por completo — conocemos los mejores horarios, evitamos el tráfico y te dejamos justo en el muelle, listo para cruzar a la isla.</p>
         <p class="about-text reveal d2" data-i18n="about.text2">Nada de compartir el vehículo con desconocidos ni hacer paradas para dejar y recoger a otros pasajeros. Tu vehículo, tu horario, tu ritmo — así debería sentirse un traslado cuando vas de vacaciones.</p>
         <div class="about-stats reveal d3">
           <div class="about-stat">
@@ -1027,7 +1026,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
           <img
             src="img/14.jpeg"
             data-i18n-alt="fleet.card2.imgAlt"
-            alt="Van de transporte turístico privado Transfer Holbox para 4 a 5 pasajeros"
+            alt="Van de transporte turístico privado Holbox Turístico para 4 a 5 pasajeros"
             class="room-card-img"
             loading="lazy">
           <div class="room-overlay"></div>
@@ -1403,7 +1402,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         </div>
         <div class="contact-quote">
           <p data-i18n="contact.quote">"Confirmamos tu reservación por WhatsApp en menos de una hora. Así de simple debe ser reservar tu traslado."</p>
-          <cite data-i18n="contact.cite">— Equipo Transfer Holbox</cite>
+          <cite data-i18n="contact.cite">— Equipo Holbox Turístico</cite>
         </div>
       </div>
     </div>
@@ -1415,9 +1414,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
-        <div class="brand-mark">TH</div>
+        <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="42" height="42"></div>
         <div class="footer-logo-text">
-          <strong>Transfer Holbox</strong>
+          <strong>Holbox Turístico</strong>
           <small data-i18n="nav.tagline">Transporte Turístico</small>
         </div>
       </div>
@@ -1453,7 +1452,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
     </div>
   </div>
   <div class="footer-bottom">
-    <p data-i18n="footer.copyright">&copy; 2026 Transfer Holbox. Todos los derechos reservados.</p>
+    <p data-i18n="footer.copyright">&copy; 2026 Holbox Turístico. Todos los derechos reservados.</p>
     <div class="social-links">
       <a href="https://wa.me/529841083794" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </div>
@@ -1479,17 +1478,17 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   var I18N = {
     es: {
       meta: {
-        title: 'Transfer Holbox | Traslado Privado Aeropuerto Cancún – Chiquilá',
-        description: 'Traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.'
+        title: 'Holbox Turístico | Traslado Privado Aeropuerto Cancún – Chiquilá',
+        description: 'Holbox Turístico: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.'
       },
-      loader: { ariaLabel: 'Cargando Transfer Holbox', tag: 'Transporte Turístico Privado' },
+      loader: { ariaLabel: 'Cargando Holbox Turístico', tag: 'Transporte Turístico Privado' },
       mobile: { ariaLabel: 'Menú principal', about: 'Nosotros', fleet: 'Flota', services: 'Servicios', gallery: 'Galería', contact: 'Contacto' },
       nav: {
-        ariaLabel: 'Navegación principal', logoAria: 'Transfer Holbox - Inicio', hamOpen: 'Abrir menú',
+        ariaLabel: 'Navegación principal', logoAria: 'Holbox Turístico - Inicio', hamOpen: 'Abrir menú',
         tagline: 'Transporte Turístico', about: 'Nosotros', fleet: 'Flota', services: 'Servicios', gallery: 'Galería', route: 'Ruta', reserve: 'Reservar'
       },
       hero: {
-        ariaLabel: 'Transfer Holbox — Traslado privado del Aeropuerto de Cancún a Chiquilá',
+        ariaLabel: 'Holbox Turístico — Traslado privado del Aeropuerto de Cancún a Chiquilá',
         eyebrow: 'Transporte Privado · Cancún → Chiquilá',
         title: 'Directo a<br><em>Holbox</em>',
         subtitlePrefix: 'Tu traslado a la isla es',
@@ -1500,7 +1499,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       about: {
         tag: 'Quiénes Somos',
         title: 'Tu conexión <em>directa</em><br>y segura a Holbox',
-        text1: 'En Transfer Holbox nos dedicamos a una sola ruta: Aeropuerto Internacional de Cancún – Chiquilá. Al enfocarnos en un solo trayecto lo dominamos por completo — conocemos los mejores horarios, evitamos el tráfico y te dejamos justo en el muelle, listo para cruzar a la isla.',
+        text1: 'En Holbox Turístico nos dedicamos a una sola ruta: Aeropuerto Internacional de Cancún – Chiquilá. Al enfocarnos en un solo trayecto lo dominamos por completo — conocemos los mejores horarios, evitamos el tráfico y te dejamos justo en el muelle, listo para cruzar a la isla.',
         text2: 'Nada de compartir el vehículo con desconocidos ni hacer paradas para dejar y recoger a otros pasajeros. Tu vehículo, tu horario, tu ritmo — así debería sentirse un traslado cuando vas de vacaciones.',
         badgeText: 'Servicio Privado',
         stat1Label: 'Ruta 100% dominada', stat2Label: 'Paradas intermedias', stat3Label: 'Reservas por WhatsApp',
@@ -1511,7 +1510,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         lead: 'Tarifa fija por vehículo, no por persona. Viaja privado, sin sorpresas en el precio.',
         cta: 'Reservar mi traslado →',
         card1: { imgAlt: 'Sedán ejecutivo para traslado privado de 1 a 3 pasajeros a Chiquilá', pill2: 'Equipaje incluido', pill3: 'Agua cortesía', tag: '1 a 3 pasajeros', name: 'Sedán<br>Ejecutivo', desc: 'Ideal para parejas o viajeros individuales. Cómodo, ágil y directo al muelle de Chiquilá.', priceUnit: 'MXN por viaje' },
-        card2: { imgAlt: 'Van de transporte turístico privado Transfer Holbox para 4 a 5 pasajeros', pill2: 'Espacio amplio', pill3: 'Equipaje incluido', tag: '4 a 5 pasajeros', name: 'Van<br>Confort', desc: 'Perfecta para familias o grupos pequeños que viajan juntos con todo su equipaje.', priceUnit: 'MXN por viaje' },
+        card2: { imgAlt: 'Van de transporte turístico privado Holbox Turístico para 4 a 5 pasajeros', pill2: 'Espacio amplio', pill3: 'Equipaje incluido', tag: '4 a 5 pasajeros', name: 'Van<br>Confort', desc: 'Perfecta para familias o grupos pequeños que viajan juntos con todo su equipaje.', priceUnit: 'MXN por viaje' },
         card3: { imgAlt: 'Van XL para grupos grandes, traslado privado de 6 a 8 pasajeros a Chiquilá', pill2: 'Máximo espacio', pill3: 'Equipaje incluido', tag: '6 a 8 pasajeros', name: 'Van<br>XL', desc: 'Para grupos grandes o familias numerosas. Todos juntos, todos cómodos, un solo vehículo.', priceUnit: 'MXN por viaje' }
       },
       services: {
@@ -1575,9 +1574,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         callAriaLabel: 'Llamada', callStrong: 'Llamada Directa', callSpan: '(984) 108-3794 · Habla con nosotros',
         emailAriaLabel: 'Correo', emailStrong: 'Correo Electrónico',
         quote: '"Confirmamos tu reservación por WhatsApp en menos de una hora. Así de simple debe ser reservar tu traslado."',
-        cite: '— Equipo Transfer Holbox',
+        cite: '— Equipo Holbox Turístico',
         alertMissing: 'Por favor completa: nombre, teléfono y fecha del traslado.',
-        waHeader: '🚐 *Transfer Holbox — Solicitud de Traslado*', waName: '👤 *Nombre:*', waPhone: '📞 *Teléfono:*',
+        waHeader: '🚐 *Holbox Turístico — Solicitud de Traslado*', waName: '👤 *Nombre:*', waPhone: '📞 *Teléfono:*',
         waDate: '📅 *Fecha:*', waFlight: '✈️ *Vuelo:*', waVehicle: '🚗 *Vehículo:*', waPax: '👥 *Pasajeros:*', waNotes: '💬 *Notas:*',
         waNotSpecified: 'No especificado', waPending: 'Por definir',
         waClosing: 'Quedo al pendiente de la confirmación de disponibilidad. ¡Gracias!'
@@ -1587,23 +1586,23 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         navHeading: 'Navegación', ratesHeading: 'Tarifas', contactHeading: 'Contacto',
         rate1: 'Sedán 1-3 — $2,600 MXN', rate2: 'Van Confort 4-5 — $3,100 MXN', rate3: 'Van XL 6-8 — $3,600 MXN',
         reviews: 'Reseñas', form: 'Formulario',
-        copyright: '&copy; 2026 Transfer Holbox. Todos los derechos reservados.'
+        copyright: '&copy; 2026 Holbox Turístico. Todos los derechos reservados.'
       },
       waFloat: { ariaLabel: 'Contactar por WhatsApp' }
     },
     en: {
       meta: {
-        title: 'Transfer Holbox | Private Transfer Cancún Airport – Chiquilá',
-        description: 'Private, direct transfer from Cancún Airport to the Chiquilá pier to cross to Holbox Island. Sedan and vans from $2,600 MXN. Book via WhatsApp, instant confirmation.'
+        title: 'Holbox Turístico | Private Transfer Cancún Airport – Chiquilá',
+        description: 'Holbox Turístico: private, direct transfer from Cancún Airport to the Chiquilá pier to cross to Holbox Island. Sedan and vans from $2,600 MXN. Book via WhatsApp, instant confirmation.'
       },
-      loader: { ariaLabel: 'Loading Transfer Holbox', tag: 'Private Tourist Transportation' },
+      loader: { ariaLabel: 'Loading Holbox Turístico', tag: 'Private Tourist Transportation' },
       mobile: { ariaLabel: 'Main menu', about: 'About', fleet: 'Fleet', services: 'Services', gallery: 'Gallery', contact: 'Contact' },
       nav: {
-        ariaLabel: 'Main navigation', logoAria: 'Transfer Holbox - Home', hamOpen: 'Open menu',
+        ariaLabel: 'Main navigation', logoAria: 'Holbox Turístico - Home', hamOpen: 'Open menu',
         tagline: 'Tourist Transportation', about: 'About', fleet: 'Fleet', services: 'Services', gallery: 'Gallery', route: 'Route', reserve: 'Book Now'
       },
       hero: {
-        ariaLabel: 'Transfer Holbox — Private transfer from Cancún Airport to Chiquilá',
+        ariaLabel: 'Holbox Turístico — Private transfer from Cancún Airport to Chiquilá',
         eyebrow: 'Private Transportation · Cancún → Chiquilá',
         title: 'Straight to<br><em>Holbox</em>',
         subtitlePrefix: 'Your transfer to the island is',
@@ -1614,7 +1613,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
       about: {
         tag: 'Who We Are',
         title: 'Your <em>direct</em><br>and safe connection to Holbox',
-        text1: 'At Transfer Holbox we focus on a single route: Cancún International Airport – Chiquilá. By specializing in one route, we\'ve mastered it completely — we know the best times to travel, avoid traffic, and drop you right at the pier, ready to cross to the island.',
+        text1: 'At Holbox Turístico we focus on a single route: Cancún International Airport – Chiquilá. By specializing in one route, we\'ve mastered it completely — we know the best times to travel, avoid traffic, and drop you right at the pier, ready to cross to the island.',
         text2: 'No sharing the vehicle with strangers, no stops to pick up or drop off other passengers. Your vehicle, your schedule, your pace — that\'s how a transfer should feel when you\'re on vacation.',
         badgeText: 'Private Service',
         stat1Label: 'Route 100% mastered', stat2Label: 'Intermediate stops', stat3Label: 'Bookings via WhatsApp',
@@ -1625,7 +1624,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         lead: 'Flat rate per vehicle, not per person. Travel privately, with no surprises in the price.',
         cta: 'Book my transfer →',
         card1: { imgAlt: 'Executive sedan for private transfer of 1 to 3 passengers to Chiquilá', pill2: 'Luggage included', pill3: 'Complimentary water', tag: '1 to 3 passengers', name: 'Executive<br>Sedan', desc: 'Ideal for couples or solo travelers. Comfortable, quick, and direct to the Chiquilá pier.', priceUnit: 'MXN per trip' },
-        card2: { imgAlt: 'Transfer Holbox private tourist transport van for 4 to 5 passengers', pill2: 'Spacious', pill3: 'Luggage included', tag: '4 to 5 passengers', name: 'Comfort<br>Van', desc: 'Perfect for families or small groups traveling together with all their luggage.', priceUnit: 'MXN per trip' },
+        card2: { imgAlt: 'Holbox Turístico private tourist transport van for 4 to 5 passengers', pill2: 'Spacious', pill3: 'Luggage included', tag: '4 to 5 passengers', name: 'Comfort<br>Van', desc: 'Perfect for families or small groups traveling together with all their luggage.', priceUnit: 'MXN per trip' },
         card3: { imgAlt: 'XL van for large groups, private transfer of 6 to 8 passengers to Chiquilá', pill2: 'Maximum space', pill3: 'Luggage included', tag: '6 to 8 passengers', name: 'XL<br>Van', desc: 'For large groups or big families. Everyone together, everyone comfortable, one single vehicle.', priceUnit: 'MXN per trip' }
       },
       services: {
@@ -1689,9 +1688,9 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         callAriaLabel: 'Call', callStrong: 'Direct Call', callSpan: '(984) 108-3794 · Talk to us',
         emailAriaLabel: 'Email', emailStrong: 'Email Address',
         quote: '"We confirm your booking via WhatsApp in under an hour. That\'s how simple booking your transfer should be."',
-        cite: '— Transfer Holbox Team',
+        cite: '— Holbox Turístico Team',
         alertMissing: 'Please fill in: name, phone, and transfer date.',
-        waHeader: '🚐 *Transfer Holbox — Transfer Request*', waName: '👤 *Name:*', waPhone: '📞 *Phone:*',
+        waHeader: '🚐 *Holbox Turístico — Transfer Request*', waName: '👤 *Name:*', waPhone: '📞 *Phone:*',
         waDate: '📅 *Date:*', waFlight: '✈️ *Flight:*', waVehicle: '🚗 *Vehicle:*', waPax: '👥 *Passengers:*', waNotes: '💬 *Notes:*',
         waNotSpecified: 'Not specified', waPending: 'To be determined',
         waClosing: 'Looking forward to your availability confirmation. Thank you!'
@@ -1701,7 +1700,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         navHeading: 'Navigation', ratesHeading: 'Rates', contactHeading: 'Contact',
         rate1: 'Sedan 1-3 — $2,600 MXN', rate2: 'Comfort Van 4-5 — $3,100 MXN', rate3: 'XL Van 6-8 — $3,600 MXN',
         reviews: 'Reviews', form: 'Form',
-        copyright: '&copy; 2026 Transfer Holbox. All rights reserved.'
+        copyright: '&copy; 2026 Holbox Turístico. All rights reserved.'
       },
       waFloat: { ariaLabel: 'Contact via WhatsApp' }
     }
