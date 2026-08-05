@@ -38,6 +38,9 @@
   --text-dim:    rgba(255,255,255,0.4);
   --border-d:    rgba(14,165,164,0.16);
   --border-l:    rgba(14,165,164,0.22);
+  --metal-gold-dark:  #8A6A2F;
+  --metal-gold:       #CFA958;
+  --metal-gold-light: #F6E7BE;
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-sans:   'Inter', system-ui, sans-serif;
   --ease-out:    cubic-bezier(0.22,1,0.36,1);
@@ -68,10 +71,33 @@ ul { list-style: none; }
 ============================================= */
 .brand-mark {
   display: block;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: contain;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
+.brand-ring {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 14px rgba(138,106,47,0.35));
+}
+.brand-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    var(--metal-gold-dark), var(--metal-gold-light) 22%, var(--metal-gold) 40%,
+    var(--metal-gold-dark) 55%, var(--metal-gold-light) 75%, var(--metal-gold) 90%,
+    var(--metal-gold-dark));
+  animation: brandRingSpin 8s linear infinite;
+}
+@keyframes brandRingSpin { to { transform: rotate(360deg); } }
 
 /* =============================================
    LOADER
@@ -150,7 +176,7 @@ ul { list-style: none; }
 .mob-logo {
   display: flex; justify-content: center; margin-bottom: 10px;
 }
-.mob-logo .brand-mark { width: 108px; height: 108px; }
+.mob-logo .brand-ring { width: 108px; height: 108px; }
 #mobile-menu .lang-switch { border-color: rgba(255,255,255,0.25); }
 #mobile-menu .lang-btn { font-size: 11px; padding: 6px 14px; }
 
@@ -182,7 +208,7 @@ ul { list-style: none; }
 }
 
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-logo .brand-mark { width: 56px; height: 56px; }
+.nav-logo .brand-ring { width: 56px; height: 56px; }
 .nav-logo-text { line-height: 1.1; }
 .nav-logo-text strong {
   display: block;
@@ -790,7 +816,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 .footer-top { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; padding-bottom: 52px; border-bottom: 1px solid var(--border-d); margin-bottom: 32px; }
 .footer-brand { max-width: 270px; }
 .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.footer-logo-wrap .brand-mark { width: 52px; height: 52px; }
+.footer-logo-wrap .brand-ring { width: 52px; height: 52px; }
 .footer-logo-text strong { display: block; font-family: var(--font-serif); font-size: 14px; font-weight: 600; color: var(--white); letter-spacing: 2px; text-transform: uppercase; }
 .footer-logo-text small { font-size: 8px; letter-spacing: 3.5px; color: var(--gold-light); text-transform: uppercase; }
 .footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.8; font-weight: 300; }
@@ -887,7 +913,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ MOBILE MENU ============ -->
 <div id="mobile-menu" role="dialog" data-i18n-aria="mobile.ariaLabel" aria-label="Menú principal">
   <div class="mob-logo">
-    <img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico">
+    <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
   </div>
   <div class="lang-switch" role="group" aria-label="Idioma / Language">
     <button type="button" class="lang-btn" data-lang="es">ES</button>
@@ -903,7 +929,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ NAV ============ -->
 <nav id="nav" role="navigation" data-i18n-aria="nav.ariaLabel" aria-label="Navegación principal">
   <a href="#" class="nav-logo" data-i18n-aria="nav.logoAria" aria-label="Holbox Turístico - Inicio">
-    <img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico">
+    <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
     <div class="nav-logo-text">
       <strong>Holbox Turístico</strong>
       <small data-i18n="nav.tagline">Transporte Turístico</small>
@@ -1420,7 +1446,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
-        <img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico">
+        <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
         <div class="footer-logo-text">
           <strong>Holbox Turístico</strong>
           <small data-i18n="nav.tagline">Transporte Turístico</small>
