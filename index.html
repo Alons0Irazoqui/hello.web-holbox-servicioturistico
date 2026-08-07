@@ -66,6 +66,18 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 ul { list-style: none; }
 
+::selection { background: var(--metal-gold); color: var(--black); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--metal-gold-light), var(--metal-gold), var(--metal-gold-dark));
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--metal-gold-light); }
+html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
+
 /* =============================================
    BRAND MARK  — logo Holbox Turístico
 ============================================= */
@@ -204,7 +216,7 @@ ul { list-style: none; }
   background: rgba(9,38,36,0.88);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  box-shadow: 0 1px 0 var(--border-d);
+  box-shadow: 0 1px 0 rgba(207,169,88,0.28);
 }
 
 .nav-logo { display: flex; align-items: center; gap: 12px; }
@@ -375,8 +387,21 @@ ul { list-style: none; }
   font-family: var(--font-sans);
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   display: inline-block;
+  position: relative; overflow: hidden;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(14,165,164,0.35); }
+.btn-primary::before {
+  content: ''; position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-out);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background: var(--gold-light); transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(14,165,164,0.32), 0 4px 16px rgba(207,169,88,0.28);
+}
+.btn-primary:hover::before { left: 130%; }
 
 .btn-ghost {
   padding: 15px 44px;
@@ -384,10 +409,10 @@ ul { list-style: none; }
   color: var(--white); font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; font-weight: 400;
   font-family: var(--font-sans);
-  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
   display: inline-block;
 }
-.btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
+.btn-ghost:hover { border-color: var(--metal-gold-light); color: var(--metal-gold-light); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(207,169,88,0.16); }
 
 .hero-scroll {
   position: absolute; bottom: 30px; left: 50%;
@@ -447,7 +472,9 @@ ul { list-style: none; }
   color: var(--gold); font-weight: 500; margin-bottom: 18px;
 }
 .section-tag::before, .section-tag::after {
-  content: ''; display: block; width: 26px; height: 1px; background: var(--gold); opacity: 0.45;
+  content: ''; display: block; width: 26px; height: 1px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light));
+  opacity: 0.65;
 }
 .section-tag.no-lines::before, .section-tag.no-lines::after { display: none; }
 
@@ -582,13 +609,14 @@ ul { list-style: none; }
 }
 .amenity-card::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px; background: var(--gold);
+  height: 2px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light), var(--metal-gold));
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.4s var(--ease-out);
 }
 .amenity-card:hover {
-  border-color: rgba(14,165,164,0.3);
-  box-shadow: 0 8px 36px rgba(0,0,0,0.09);
+  border-color: rgba(207,169,88,0.35);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.09), 0 2px 18px rgba(207,169,88,0.14);
   transform: translateY(-5px);
 }
 .amenity-card:hover::after { transform: scaleX(1); }
@@ -715,7 +743,18 @@ ul { list-style: none; }
   font-family: var(--font-serif); font-size: 90px; font-weight: 600;
   color: rgba(14,165,164,0.1); line-height: 1; pointer-events: none;
 }
-.review-card:hover { box-shadow: 0 14px 52px rgba(0,0,0,0.1); transform: translateY(-5px); }
+.review-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light), var(--metal-gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.review-card:hover {
+  box-shadow: 0 14px 52px rgba(0,0,0,0.1), 0 4px 20px rgba(207,169,88,0.12);
+  transform: translateY(-5px);
+}
+.review-card:hover::after { transform: scaleX(1); }
 .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 18px; }
 .review-text {
   font-family: var(--font-serif); font-size: 16px; font-style: italic;
@@ -739,9 +778,13 @@ ul { list-style: none; }
   color: var(--text-dark); font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; font-weight: 400;
   font-family: var(--font-sans);
-  transition: border-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-.btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold-dark); }
+.btn-ghost-dark:hover {
+  border-color: var(--metal-gold); color: var(--metal-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(207,169,88,0.18);
+}
 
 /* =============================================
    RESERVACIONES  — CREAM
@@ -786,8 +829,21 @@ ul { list-style: none; }
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
   font-weight: 600; font-family: var(--font-sans);
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
 }
-.form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(14,165,164,0.3); }
+.form-submit::before {
+  content: ''; position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-out);
+  pointer-events: none;
+}
+.form-submit:hover {
+  background: var(--gold-light); transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(14,165,164,0.3), 0 4px 16px rgba(207,169,88,0.25);
+}
+.form-submit:hover::before { left: 130%; }
 
 .contact-right .section-tag { justify-content: flex-start; }
 .contact-right .section-tag::before { display: none; }
