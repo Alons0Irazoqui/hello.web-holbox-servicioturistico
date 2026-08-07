@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Holbox Turístico: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.">
-<meta name="keywords" content="holbox turistico, traslados holbox turistico, traslado cancun chiquila, transporte privado a holbox, taxi chiquila, van aeropuerto cancun holbox, shuttle isla holbox, como llegar a holbox desde cancun">
+<meta name="description" content="Transfer Holbox: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.">
+<meta name="keywords" content="transfer holbox, holbox turistico, traslado cancun chiquila, transporte privado a holbox, taxi chiquila, van aeropuerto cancun holbox, shuttle isla holbox, como llegar a holbox desde cancun">
 <meta property="og:title" content="Transfer Holbox | Traslado Privado Aeropuerto Cancún – Chiquilá">
 <meta property="og:description" content="Tu conexión directa entre el Aeropuerto de Cancún y el muelle de Chiquilá. Servicio privado, puntual y sin paradas.">
 <title>Transfer Holbox | Traslado Privado Aeropuerto Cancún – Chiquilá</title>
-<link rel="icon" type="image/png" href="img/logo-holbox-turistico.png">
-<link rel="apple-touch-icon" href="img/logo-holbox-turistico.png">
+<link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="img/favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -37,6 +38,9 @@
   --text-dim:    rgba(255,255,255,0.4);
   --border-d:    rgba(14,165,164,0.16);
   --border-l:    rgba(14,165,164,0.22);
+  --metal-gold-dark:  #8A6A2F;
+  --metal-gold:       #CFA958;
+  --metal-gold-light: #F6E7BE;
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-sans:   'Inter', system-ui, sans-serif;
   --ease-out:    cubic-bezier(0.22,1,0.36,1);
@@ -62,16 +66,50 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 ul { list-style: none; }
 
+::selection { background: var(--metal-gold); color: var(--black); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--metal-gold-light), var(--metal-gold), var(--metal-gold-dark));
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--metal-gold-light); }
+html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
+
 /* =============================================
    BRAND MARK  — logo Holbox Turístico
 ============================================= */
 .brand-mark {
-  display: flex; align-items: center; justify-content: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
-.brand-mark img {
-  width: 100%; height: 100%; object-fit: contain; display: block;
+.brand-ring {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 14px rgba(138,106,47,0.35));
 }
+.brand-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    var(--metal-gold-dark), var(--metal-gold-light) 22%, var(--metal-gold) 40%,
+    var(--metal-gold-dark) 55%, var(--metal-gold-light) 75%, var(--metal-gold) 90%,
+    var(--metal-gold-dark));
+  animation: brandRingSpin 8s linear infinite;
+}
+@keyframes brandRingSpin { to { transform: rotate(360deg); } }
 
 /* =============================================
    LOADER
@@ -86,22 +124,33 @@ ul { list-style: none; }
 #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
 .loader-logo-wrap {
+  position: relative;
   animation: ldLogoIn 0.9s var(--ease-out) both;
   text-align: center;
 }
-.loader-brand {
-  font-family: var(--font-serif); font-weight: 300;
-  font-size: clamp(32px, 6vw, 46px);
-  color: var(--text-dark); line-height: 1;
-  animation: ldPulse 2.8s ease-in-out infinite;
+.loader-logo-wrap::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: clamp(180px, 26vw, 320px);
+  height: clamp(180px, 26vw, 320px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(14,165,164,0.18) 0%, transparent 70%);
+  animation: ldGlow 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
-.loader-brand em {
-  font-style: italic; color: var(--gold-dark);
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+.loader-logo-img {
+  position: relative;
+  width: clamp(118px, 15vw, 190px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 14px 32px rgba(14,165,164,0.3));
+  animation: ldBreathe 3.2s ease-in-out infinite;
 }
-@keyframes ldLogoIn { from { opacity:0; transform:scale(0.88) translateY(12px); } to { opacity:1; transform:scale(1) translateY(0); } }
-@keyframes ldPulse   { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
+@keyframes ldLogoIn  { from { opacity:0; transform:scale(0.88) translateY(12px); } to { opacity:1; transform:scale(1) translateY(0); } }
+@keyframes ldBreathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.035); } }
+@keyframes ldGlow    { 0%,100% { opacity:0.55; transform:translate(-50%,-50%) scale(1); } 50% { opacity:1; transform:translate(-50%,-50%) scale(1.12); } }
 
 .loader-tag {
   font-size: 9px; letter-spacing: 5px;
@@ -139,7 +188,7 @@ ul { list-style: none; }
 .mob-logo {
   display: flex; justify-content: center; margin-bottom: 10px;
 }
-.mob-logo .brand-mark { width: 92px; height: 92px; font-size: 34px; }
+.mob-logo .brand-ring { width: 108px; height: 108px; }
 #mobile-menu .lang-switch { border-color: rgba(255,255,255,0.25); }
 #mobile-menu .lang-btn { font-size: 11px; padding: 6px 14px; }
 
@@ -167,11 +216,11 @@ ul { list-style: none; }
   background: rgba(9,38,36,0.88);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  box-shadow: 0 1px 0 var(--border-d);
+  box-shadow: 0 1px 0 rgba(207,169,88,0.28);
 }
 
 .nav-logo { display: flex; align-items: center; gap: 12px; }
-.nav-logo .brand-mark { width: 46px; height: 46px; font-size: 16px; }
+.nav-logo .brand-ring { width: 56px; height: 56px; }
 .nav-logo-text { line-height: 1.1; }
 .nav-logo-text strong {
   display: block;
@@ -338,8 +387,21 @@ ul { list-style: none; }
   font-family: var(--font-sans);
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   display: inline-block;
+  position: relative; overflow: hidden;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(14,165,164,0.35); }
+.btn-primary::before {
+  content: ''; position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-out);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background: var(--gold-light); transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(14,165,164,0.32), 0 4px 16px rgba(207,169,88,0.28);
+}
+.btn-primary:hover::before { left: 130%; }
 
 .btn-ghost {
   padding: 15px 44px;
@@ -347,10 +409,10 @@ ul { list-style: none; }
   color: var(--white); font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; font-weight: 400;
   font-family: var(--font-sans);
-  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
   display: inline-block;
 }
-.btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); transform: translateY(-2px); }
+.btn-ghost:hover { border-color: var(--metal-gold-light); color: var(--metal-gold-light); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(207,169,88,0.16); }
 
 .hero-scroll {
   position: absolute; bottom: 30px; left: 50%;
@@ -410,7 +472,9 @@ ul { list-style: none; }
   color: var(--gold); font-weight: 500; margin-bottom: 18px;
 }
 .section-tag::before, .section-tag::after {
-  content: ''; display: block; width: 26px; height: 1px; background: var(--gold); opacity: 0.45;
+  content: ''; display: block; width: 26px; height: 1px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light));
+  opacity: 0.65;
 }
 .section-tag.no-lines::before, .section-tag.no-lines::after { display: none; }
 
@@ -545,13 +609,14 @@ ul { list-style: none; }
 }
 .amenity-card::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px; background: var(--gold);
+  height: 2px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light), var(--metal-gold));
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.4s var(--ease-out);
 }
 .amenity-card:hover {
-  border-color: rgba(14,165,164,0.3);
-  box-shadow: 0 8px 36px rgba(0,0,0,0.09);
+  border-color: rgba(207,169,88,0.35);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.09), 0 2px 18px rgba(207,169,88,0.14);
   transform: translateY(-5px);
 }
 .amenity-card:hover::after { transform: scaleX(1); }
@@ -678,7 +743,18 @@ ul { list-style: none; }
   font-family: var(--font-serif); font-size: 90px; font-weight: 600;
   color: rgba(14,165,164,0.1); line-height: 1; pointer-events: none;
 }
-.review-card:hover { box-shadow: 0 14px 52px rgba(0,0,0,0.1); transform: translateY(-5px); }
+.review-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--metal-gold-dark), var(--metal-gold-light), var(--metal-gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.review-card:hover {
+  box-shadow: 0 14px 52px rgba(0,0,0,0.1), 0 4px 20px rgba(207,169,88,0.12);
+  transform: translateY(-5px);
+}
+.review-card:hover::after { transform: scaleX(1); }
 .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 18px; }
 .review-text {
   font-family: var(--font-serif); font-size: 16px; font-style: italic;
@@ -702,9 +778,13 @@ ul { list-style: none; }
   color: var(--text-dark); font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; font-weight: 400;
   font-family: var(--font-sans);
-  transition: border-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-.btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold-dark); }
+.btn-ghost-dark:hover {
+  border-color: var(--metal-gold); color: var(--metal-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(207,169,88,0.18);
+}
 
 /* =============================================
    RESERVACIONES  — CREAM
@@ -749,8 +829,21 @@ ul { list-style: none; }
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
   font-weight: 600; font-family: var(--font-sans);
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
 }
-.form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(14,165,164,0.3); }
+.form-submit::before {
+  content: ''; position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-out);
+  pointer-events: none;
+}
+.form-submit:hover {
+  background: var(--gold-light); transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(14,165,164,0.3), 0 4px 16px rgba(207,169,88,0.25);
+}
+.form-submit:hover::before { left: 130%; }
 
 .contact-right .section-tag { justify-content: flex-start; }
 .contact-right .section-tag::before { display: none; }
@@ -779,7 +872,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 .footer-top { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; padding-bottom: 52px; border-bottom: 1px solid var(--border-d); margin-bottom: 32px; }
 .footer-brand { max-width: 270px; }
 .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.footer-logo-wrap .brand-mark { width: 42px; height: 42px; font-size: 14px; }
+.footer-logo-wrap .brand-ring { width: 52px; height: 52px; }
 .footer-logo-text strong { display: block; font-family: var(--font-serif); font-size: 14px; font-weight: 600; color: var(--white); letter-spacing: 2px; text-transform: uppercase; }
 .footer-logo-text small { font-size: 8px; letter-spacing: 3.5px; color: var(--gold-light); text-transform: uppercase; }
 .footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.8; font-weight: 300; }
@@ -839,6 +932,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
   .nav-ham { display: flex; }
+  .nav-logo-text small { display: none; }
   .about-grid, .location-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-badge { top: 14px; right: 14px; }
   .rooms-grid { grid-template-columns: 1fr; }
@@ -857,6 +951,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   .btn-primary, .btn-ghost { text-align: center; padding: 15px; }
   .about-stats { gap: 18px; }
   .exp-stats { gap: 36px; }
+  .form-submit { font-size: 9px; letter-spacing: 1.5px; padding: 17px 8px; }
 }
 </style>
 </head>
@@ -865,7 +960,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ LOADER ============ -->
 <div id="loader" role="status" data-i18n-aria="loader.ariaLabel" aria-label="Cargando Holbox Turístico">
   <div class="loader-logo-wrap">
-    <p class="loader-brand">Holbox <em>Turístico</em></p>
+    <img class="loader-logo-img" src="img/logo-holbox-turistico.png" alt="Holbox Turístico">
   </div>
   <p class="loader-tag" data-i18n="loader.tag">Transporte Turístico Privado</p>
   <div class="loader-progress"><div class="loader-progress-fill"></div></div>
@@ -874,7 +969,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ MOBILE MENU ============ -->
 <div id="mobile-menu" role="dialog" data-i18n-aria="mobile.ariaLabel" aria-label="Menú principal">
   <div class="mob-logo">
-    <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="92" height="92"></div>
+    <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
   </div>
   <div class="lang-switch" role="group" aria-label="Idioma / Language">
     <button type="button" class="lang-btn" data-lang="es">ES</button>
@@ -890,7 +985,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <!-- ============ NAV ============ -->
 <nav id="nav" role="navigation" data-i18n-aria="nav.ariaLabel" aria-label="Navegación principal">
   <a href="#" class="nav-logo" data-i18n-aria="nav.logoAria" aria-label="Holbox Turístico - Inicio">
-    <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="46" height="46"></div>
+    <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
     <div class="nav-logo-text">
       <strong>Holbox Turístico</strong>
       <small data-i18n="nav.tagline">Transporte Turístico</small>
@@ -946,7 +1041,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ ABOUT — CREAM ============ -->
 <section id="about">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
         <img
@@ -986,7 +1081,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ FLOTA — DARK con fotos reales ============ -->
 <section id="rooms" aria-labelledby="rooms-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="section-header">
       <p class="section-tag reveal" data-i18n="fleet.tag">Nuestra Flota</p>
       <h2 class="section-title reveal d1" id="rooms-title" style="color:var(--white);" data-i18n="fleet.title">Elige tu <em>vehículo</em></h2>
@@ -1075,7 +1170,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ SERVICIOS — WHITE ============ -->
 <section id="amenities" aria-labelledby="amenities-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="section-header">
       <p class="section-tag reveal" data-i18n="services.tag">Por Qué Elegirnos</p>
       <h2 class="section-title reveal d1" id="amenities-title" data-i18n="services.title">Todo lo que <em>necesitas</em></h2>
@@ -1128,7 +1223,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ COMPROMISO — TURQUESA ============ -->
 <section id="experience" aria-label="Nuestro compromiso">
-  <div class="container" style="padding:96px 0;">
+  <div class="container">
     <div class="exp-inner">
       <div class="exp-left reveal">
         <p class="section-tag" data-i18n="experience.tag">Nuestro Compromiso</p>
@@ -1145,7 +1240,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ GALERÍA — DARK, fotos reales ============ -->
 <section id="gallery" aria-labelledby="gallery-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="section-header">
       <p class="section-tag reveal" data-i18n="gallery.tag">Galería</p>
       <h2 class="section-title reveal d1" id="gallery-title" data-i18n="gallery.title">De Cancún a <em>Holbox</em></h2>
@@ -1195,7 +1290,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ RUTA — CREAM ============ -->
 <section id="location" aria-labelledby="location-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="location-grid">
       <div class="map-box reveal">
         <div class="map-pin-wrap">
@@ -1244,7 +1339,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
 <!-- ============ TESTIMONIOS — CREAM ============ -->
 <section id="testimonios" aria-labelledby="testimonios-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="section-header">
       <p class="section-tag reveal" data-i18n="testimonials.tag">Testimonios</p>
       <h2 class="section-title reveal d1" id="testimonios-title" data-i18n="testimonials.title">Lo que dicen nuestros <em>viajeros</em></h2>
@@ -1290,14 +1385,14 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 
     </div>
     <div style="text-align:center;margin-top:52px;" class="reveal">
-      <a href="https://g.page/r/CSpZgQGIMsgHEBI/review" target="_blank" rel="noopener" class="btn-ghost-dark" data-i18n="testimonials.cta">Comparte tu experiencia →</a>
+      <a href="https://g.page/r/CSpZgQGlMSgHEBI/review" target="_blank" rel="noopener" class="btn-ghost-dark" data-i18n="testimonials.cta">Comparte tu experiencia →</a>
     </div>
   </div>
 </section>
 
 <!-- ============ RESERVACIONES — CREAM ============ -->
 <section id="contact" aria-labelledby="contact-title">
-  <div class="container" style="padding:120px 0;">
+  <div class="container">
     <div class="section-header">
       <p class="section-tag reveal" data-i18n="contact.tag">Reservaciones</p>
       <h2 class="section-title reveal d1" id="contact-title" style="color:var(--text-dark);" data-i18n="contact.title">Reserva tu <em>traslado</em></h2>
@@ -1407,7 +1502,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo-wrap">
-        <div class="brand-mark"><img src="img/logo-holbox-turistico.png" alt="Holbox Turístico" width="42" height="42"></div>
+        <span class="brand-ring"><img class="brand-mark" src="img/logo-holbox-turistico.png" alt="Holbox Turístico"></span>
         <div class="footer-logo-text">
           <strong>Holbox Turístico</strong>
           <small data-i18n="nav.tagline">Transporte Turístico</small>
@@ -1472,7 +1567,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
     es: {
       meta: {
         title: 'Transfer Holbox | Traslado Privado Aeropuerto Cancún – Chiquilá',
-        description: 'Holbox Turístico: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.'
+        description: 'Transfer Holbox: traslado privado y directo del Aeropuerto de Cancún al muelle de Chiquilá para cruzar a Isla Holbox. Sedán y vans desde $2,600 MXN. Reserva por WhatsApp, confirmación inmediata.'
       },
       loader: { ariaLabel: 'Cargando Holbox Turístico', tag: 'Transporte Turístico Privado' },
       mobile: { ariaLabel: 'Menú principal', about: 'Nosotros', fleet: 'Flota', services: 'Servicios', gallery: 'Galería', contact: 'Contacto' },
@@ -1585,7 +1680,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
     en: {
       meta: {
         title: 'Transfer Holbox | Private Transfer Cancún Airport – Chiquilá',
-        description: 'Holbox Turístico: private, direct transfer from Cancún Airport to the Chiquilá pier to cross to Holbox Island. Sedan and vans from $2,600 MXN. Book via WhatsApp, instant confirmation.'
+        description: 'Transfer Holbox: private, direct transfer from Cancún Airport to the Chiquilá pier to cross to Holbox Island. Sedan and vans from $2,600 MXN. Book via WhatsApp, instant confirmation.'
       },
       loader: { ariaLabel: 'Loading Holbox Turístico', tag: 'Private Tourist Transportation' },
       mobile: { ariaLabel: 'Main menu', about: 'About', fleet: 'Fleet', services: 'Services', gallery: 'Gallery', contact: 'Contact' },
