@@ -96,20 +96,11 @@ html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
   display: inline-block;
   border-radius: 50%;
   flex-shrink: 0;
+  background: rgba(255, 251, 243, 0.96);
+  padding: 6px;
+  box-shadow: inset 0 0 0 1px rgba(14,165,164,0.08);
   filter: drop-shadow(0 4px 14px rgba(138,106,47,0.35));
 }
-.brand-ring::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg,
-    var(--metal-gold-dark), var(--metal-gold-light) 22%, var(--metal-gold) 40%,
-    var(--metal-gold-dark) 55%, var(--metal-gold-light) 75%, var(--metal-gold) 90%,
-    var(--metal-gold-dark));
-  animation: brandRingSpin 8s linear infinite;
-}
-@keyframes brandRingSpin { to { transform: rotate(360deg); } }
 
 /* =============================================
    LOADER
@@ -1292,12 +1283,12 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <section id="location" aria-labelledby="location-title">
   <div class="container">
     <div class="location-grid">
-      <div class="map-box reveal">
+      <a href="https://maps.app.goo.gl/w5F4tFGkSq6Ca49k6?g_st=iwb" target="_blank" rel="noopener" class="map-box reveal" aria-label="Abrir ubicación de Chiquilá en Google Maps">
         <div class="map-pin-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>Chiquilá, Quintana Roo</span>
         </div>
-      </div>
+      </a>
       <div class="location-info reveal d1">
         <p class="section-tag" data-i18n="route.tag">La Ruta</p>
         <h2 class="location-title" id="location-title" data-i18n="route.title">Aeropuerto de Cancún → <em>Chiquilá</em></h2>
