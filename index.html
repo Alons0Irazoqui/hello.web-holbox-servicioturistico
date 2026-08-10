@@ -686,21 +686,17 @@ html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
 
 .map-box {
   width: 100%; aspect-ratio: 4/3;
-  background: #EAF6F5; border: 1px solid rgba(14,165,164,0.2);
-  display: flex; align-items: center; justify-content: center;
+  background: #E5E3DF; border: 1px solid rgba(14,165,164,0.2);
+  display: block;
   position: relative; overflow: hidden;
 }
-.map-box::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(14,165,164,0.07) 40px, rgba(14,165,164,0.07) 41px),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(14,165,164,0.07) 40px, rgba(14,165,164,0.07) 41px);
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
-.map-pin-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 1; }
-.map-pin-wrap svg { width: 44px; height: 44px; color: var(--gold); filter: drop-shadow(0 0 16px rgba(14,165,164,0.4)); animation: pinFloat 2.5s ease-in-out infinite; }
-.map-pin-wrap span { font-family: var(--font-serif); font-size: 15px; color: var(--text-dark); letter-spacing: 2px; }
-@keyframes pinFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+.map-box:focus-within { outline: 2px solid rgba(14,165,164,0.45); outline-offset: 4px; }
 
 .location-info .section-tag { color: var(--gold); }
 .location-title { font-family: var(--font-serif); font-size: clamp(24px,3.2vw,42px); font-weight: 300; color: var(--text-dark); margin-bottom: 20px; line-height: 1.15; }
@@ -1283,12 +1279,15 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <section id="location" aria-labelledby="location-title">
   <div class="container">
     <div class="location-grid">
-      <a href="https://maps.app.goo.gl/w5F4tFGkSq6Ca49k6?g_st=iwb" target="_blank" rel="noopener" class="map-box reveal" aria-label="Abrir ubicación de Chiquilá en Google Maps">
-        <div class="map-pin-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Chiquilá, Quintana Roo</span>
-        </div>
-      </a>
+      <div class="map-box reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Holboxturistico%7CTransfer%2C%20Calle%20zapata%20por%20pinos%2C%2077333%20San%20%C3%81ngel%2C%20Q.R.&output=embed"
+          title="Ubicación de Holboxturistico Transfer en Google Maps"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
       <div class="location-info reveal d1">
         <p class="section-tag" data-i18n="route.tag">La Ruta</p>
         <h2 class="location-title" id="location-title" data-i18n="route.title">Aeropuerto de Cancún → <em>Chiquilá</em></h2>
