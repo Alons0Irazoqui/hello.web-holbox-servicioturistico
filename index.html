@@ -697,6 +697,29 @@ html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
   display: block;
 }
 .map-box:focus-within { outline: 2px solid rgba(14,165,164,0.45); outline-offset: 4px; }
+.map-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 0 24px;
+  background: var(--gold);
+  color: var(--white);
+  border: 1px solid var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s var(--ease-out);
+}
+.map-action:hover,
+.map-action:focus-visible {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  transform: translateY(-2px);
+}
 
 .location-info .section-tag { color: var(--gold); }
 .location-title { font-family: var(--font-serif); font-size: clamp(24px,3.2vw,42px); font-weight: 300; color: var(--text-dark); margin-bottom: 20px; line-height: 1.15; }
@@ -1279,14 +1302,17 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <section id="location" aria-labelledby="location-title">
   <div class="container">
     <div class="location-grid">
-      <div class="map-box reveal">
-        <iframe
-          src="https://www.google.com/maps?q=Holboxturistico%7CTransfer%2C%20Calle%20zapata%20por%20pinos%2C%2077333%20San%20%C3%81ngel%2C%20Q.R.&output=embed"
-          title="Ubicación de Holboxturistico Transfer en Google Maps"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+      <div class="map-area reveal">
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps?q=Holboxturistico%7CTransfer%2C%20Calle%20Pablo%20Cruz%20por%20Delfines%2C%2077320%20Chiquil%C3%A1%2C%20Q.R.&output=embed"
+            title="Ubicación de Holboxturistico Transfer en Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <a class="map-action" href="https://maps.app.goo.gl/zt4ChysEGfSG1nkn7?g_st=iwb" target="_blank" rel="noopener" data-i18n="route.mapButton">Chiquilá nuestra ubicación</a>
       </div>
       <div class="location-info reveal d1">
         <p class="section-tag" data-i18n="route.tag">La Ruta</p>
@@ -1304,7 +1330,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0020 0h-3"/></svg>
             <div>
               <span class="loc-label" data-i18n="route.d2Label">Destino</span>
-              <span class="loc-val" data-i18n="route.d2Val">Muelle de Chiquilá — conexión directa al ferry a Holbox</span>
+              <span class="loc-val" data-i18n="route.d2Val">Holboxturistico Transfer — Calle Pablo Cruz por Delfines, 77320 Chiquilá, Q.R.</span>
             </div>
           </div>
           <div class="loc-detail">
@@ -1621,9 +1647,10 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         tag: 'La Ruta', title: 'Aeropuerto de Cancún → <em>Chiquilá</em>',
         text: 'Te recogemos en la sala de llegadas del Aeropuerto Internacional de Cancún y te llevamos sin escalas hasta el muelle de Chiquilá, punto exacto de embarque del ferry hacia Isla Holbox.',
         d1Label: 'Origen', d1Val: 'Aeropuerto Internacional de Cancún (CUN) — todas las terminales',
-        d2Label: 'Destino', d2Val: 'Muelle de Chiquilá — conexión directa al ferry a Holbox',
+        d2Label: 'Destino', d2Val: 'Holboxturistico Transfer — Calle Pablo Cruz por Delfines, 77320 Chiquilá, Q.R.',
         d3Label: 'Duración aproximada', d3Val: '2.5 horas por la carretera costera (según tráfico y clima)',
-        d4Label: 'Disponibilidad', d4Val: 'Traslados todos los días, coordinados según tu horario de vuelo'
+        d4Label: 'Disponibilidad', d4Val: 'Traslados todos los días, coordinados según tu horario de vuelo',
+        mapButton: 'Chiquilá nuestra ubicación'
       },
       testimonials: {
         tag: 'Testimonios', title: 'Lo que dicen nuestros <em>viajeros</em>',
@@ -1734,9 +1761,10 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         tag: 'The Route', title: 'Cancún Airport → <em>Chiquilá</em>',
         text: 'We pick you up at the arrivals hall of Cancún International Airport and take you nonstop to the Chiquilá pier, the exact boarding point for the ferry to Holbox Island.',
         d1Label: 'Origin', d1Val: 'Cancún International Airport (CUN) — all terminals',
-        d2Label: 'Destination', d2Val: 'Chiquilá pier — direct connection to the Holbox ferry',
+        d2Label: 'Destination', d2Val: 'Holboxturistico Transfer — Calle Pablo Cruz por Delfines, 77320 Chiquilá, Q.R.',
         d3Label: 'Approximate duration', d3Val: '2.5 hours along the coastal highway (depending on traffic and weather)',
-        d4Label: 'Availability', d4Val: 'Transfers every day, coordinated around your flight schedule'
+        d4Label: 'Availability', d4Val: 'Transfers every day, coordinated around your flight schedule',
+        mapButton: 'Chiquilá nuestra ubicación'
       },
       testimonials: {
         tag: 'Testimonials', title: 'What our <em>travelers</em> say',
