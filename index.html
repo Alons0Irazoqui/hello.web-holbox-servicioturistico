@@ -741,7 +741,7 @@ html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
 #testimonios .section-title { color: var(--text-dark); }
 #testimonios .section-lead  { color: var(--text-mid); }
 
-.reviews-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
 .review-card {
   background: var(--white);
   padding: 40px 32px;
@@ -797,6 +797,52 @@ html { scrollbar-color: var(--metal-gold) var(--dark); scrollbar-width: thin; }
   transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(207,169,88,0.18);
 }
+
+/* =============================================
+   PREGUNTAS FRECUENTES  — DARK
+============================================= */
+#faq { padding: 120px 0; background: var(--dark); }
+#faq .section-title { color: var(--white); }
+#faq .section-lead  { color: var(--text-muted); }
+
+.faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-d);
+  transition: border-color 0.35s, background 0.35s;
+}
+.faq-item:hover { border-color: rgba(94,234,212,0.32); }
+.faq-item.open { background: rgba(255,255,255,0.07); border-color: rgba(94,234,212,0.42); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 24px 28px; text-align: left;
+  color: var(--white); font-family: var(--font-sans);
+  font-size: 16px; font-weight: 400; line-height: 1.5;
+}
+.faq-q:focus-visible { outline: 2px solid var(--gold-light); outline-offset: -2px; }
+.faq-icon {
+  position: relative; flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(94,234,212,0.4);
+  transition: background 0.35s, border-color 0.35s, transform 0.35s var(--ease-out);
+}
+.faq-icon::before, .faq-icon::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  background: var(--gold-light);
+  transform: translate(-50%,-50%);
+  transition: transform 0.35s var(--ease-out), background 0.35s;
+}
+.faq-icon::before { width: 12px; height: 1.5px; }
+.faq-icon::after  { width: 1.5px; height: 12px; }
+.faq-item.open .faq-icon { background: var(--gold); border-color: var(--gold); }
+.faq-item.open .faq-icon::before, .faq-item.open .faq-icon::after { background: var(--white); }
+.faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
+.faq-a {
+  display: grid; grid-template-rows: 0fr; visibility: hidden;
+  transition: grid-template-rows 0.4s var(--ease-out), visibility 0s linear 0.4s;
+}
+.faq-item.open .faq-a { grid-template-rows: 1fr; visibility: visible; transition-delay: 0s; }
+.faq-a-inner { overflow: hidden; min-height: 0; }
+.faq-a p { padding: 0 28px 26px; max-width: 720px; font-size: 15px; line-height: 1.85; color: var(--text-muted); }
 
 /* =============================================
    RESERVACIONES  — CREAM
@@ -981,6 +1027,8 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   .about-stats { gap: 18px; }
   .exp-stats { gap: 36px; }
   .form-submit { font-size: 9px; letter-spacing: 1.5px; padding: 17px 8px; }
+  .faq-q { padding: 20px 18px; font-size: 15px; }
+  .faq-a p { padding: 0 18px 22px; }
 }
 </style>
 </head>
@@ -1418,9 +1466,98 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         </div>
       </div>
 
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="testimonials.r3.text">"Muy buen servicio - me ayudaron a mover a 50 personas diferentes horarios etc y siempre puntuales y comodidad! 100% recomendable"</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div class="review-name">
+            <strong>Luis Iglesias</strong>
+            <span data-i18n="testimonials.r3.role">Reseña de Google</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div style="text-align:center;margin-top:52px;" class="reveal">
       <a href="https://g.page/r/Cbs1sXgVVmA-EBI/review" target="_blank" rel="noopener" class="btn-ghost-dark" data-i18n="testimonials.cta">Comparte tu experiencia →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS FRECUENTES — DARK ============ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal" data-i18n="faq.tag">Resolvemos tus dudas</p>
+      <h2 class="section-title reveal d1" id="faq-title" data-i18n="faq.title">Preguntas <em>frecuentes</em></h2>
+      <p class="section-lead reveal d2" data-i18n="faq.lead">Información clara antes de reservar tu transporte a Holbox.</p>
+    </div>
+    <div class="faq-list reveal d1">
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a1">
+          <span data-i18n="faq.q1">¿Qué servicio ofrece Holbox Turístico Transfer?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a1"><div class="faq-a-inner"><p data-i18n="faq.a1">Ofrecemos transporte privado desde el Aeropuerto de Cancún, Cancún y la Riviera Maya hasta el puerto de Chiquilá para conectar con el ferry hacia Holbox.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a2">
+          <span data-i18n="faq.q2">¿El transporte es privado o compartido?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a2"><div class="faq-a-inner"><p data-i18n="faq.a2">Nuestro servicio es privado, ideal para parejas, familias y grupos que buscan viajar cómodamente y sin compartir la unidad con otros pasajeros.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a3">
+          <span data-i18n="faq.q3">¿El transporte me lleva directamente hasta Holbox?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a3"><div class="faq-a-inner"><p data-i18n="faq.a3">El traslado terrestre llega al puerto de Chiquilá. Desde ahí, tomas el ferry para cruzar a la isla de Holbox.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a4">
+          <span data-i18n="faq.q4">¿El servicio incluye los boletos del ferry?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a4"><div class="faq-a-inner"><p data-i18n="faq.a4">Contamos con servicio sencillo y opciones todo incluido. Los boletos del ferry dependen de la opción que elijas; te confirmamos qué incluye tu cotización.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a5">
+          <span data-i18n="faq.q5">¿Cuánto cuesta el traslado a Chiquilá?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a5"><div class="faq-a-inner"><p data-i18n="faq.a5">El precio depende del lugar de recogida, el número de pasajeros y el tipo de servicio. Solicita tu cotización personalizada por WhatsApp.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a6">
+          <span data-i18n="faq.q6">¿Cuántas personas pueden viajar?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a6"><div class="faq-a-inner"><p data-i18n="faq.a6">Tenemos opciones de transporte para parejas, familias y grupos. Indícanos cuántas personas viajan para recomendarte la unidad adecuada.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a7">
+          <span data-i18n="faq.q7">¿Puedo reservar con anticipación?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a7"><div class="faq-a-inner"><p data-i18n="faq.a7">Sí, puedes solicitar tu reservación con anticipación para consultar disponibilidad y coordinar tu traslado.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a8">
+          <span data-i18n="faq.q8">¿Necesito pagar por adelantado?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a8"><div class="faq-a-inner"><p data-i18n="faq.a8">Para tu comodidad, no solicitamos anticipo. El pago total se realiza al momento de abordar la unidad, de acuerdo con las condiciones confirmadas de tu reservación.</p></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a9">
+          <span data-i18n="faq.q9">¿También ofrecen viajes de regreso?</span><span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq-a9"><div class="faq-a-inner"><p data-i18n="faq.a9">Sí, puedes consultar nuestro servicio sencillo o redondo para organizar tu traslado de ida y regreso.</p></div></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1583,6 +1720,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         <li><a href="tel:+529841083794">(984) 108-3794</a></li>
         <li><a href="mailto:Holboxturistico@gmail.com">Holboxturistico@gmail.com</a></li>
         <li><a href="#testimonios" data-i18n="footer.reviews">Reseñas</a></li>
+        <li><a href="#faq" data-i18n="footer.faq">Preguntas frecuentes</a></li>
         <li><a href="#contact" data-i18n="footer.form">Formulario</a></li>
       </ul>
     </div>
@@ -1699,7 +1837,30 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         lead: 'La mejor garantía es la experiencia de quienes ya viajaron con nosotros a Holbox.',
         cta: 'Comparte tu experiencia →',
         r1: { text: '"Excelente servicio un precio adecuado, autos en buenas condiciones y personal amable"', role: 'Reseña de Google' },
-        r2: { text: '"Una experiencia perfecta, totalmente adaptada a nuestras necesidades. El conductor nos esperaba en la terminal del ferry a nuestro regreso de Holbox y nos llevó hasta Mérida. Servicio eficiente, personal amable y atento, y una excelente relación calidad-precio. ¡Muy recomendable!"', role: 'Reseña de Google' }
+        r2: { text: '"Una experiencia perfecta, totalmente adaptada a nuestras necesidades. El conductor nos esperaba en la terminal del ferry a nuestro regreso de Holbox y nos llevó hasta Mérida. Servicio eficiente, personal amable y atento, y una excelente relación calidad-precio. ¡Muy recomendable!"', role: 'Reseña de Google' },
+        r3: { text: '"Muy buen servicio - me ayudaron a mover a 50 personas diferentes horarios etc y siempre puntuales y comodidad! 100% recomendable"', role: 'Reseña de Google' }
+      },
+      faq: {
+        tag: 'Resolvemos tus dudas', title: 'Preguntas <em>frecuentes</em>',
+        lead: 'Información clara antes de reservar tu transporte a Holbox.',
+        q1: '¿Qué servicio ofrece Holbox Turístico Transfer?',
+        a1: 'Ofrecemos transporte privado desde el Aeropuerto de Cancún, Cancún y la Riviera Maya hasta el puerto de Chiquilá para conectar con el ferry hacia Holbox.',
+        q2: '¿El transporte es privado o compartido?',
+        a2: 'Nuestro servicio es privado, ideal para parejas, familias y grupos que buscan viajar cómodamente y sin compartir la unidad con otros pasajeros.',
+        q3: '¿El transporte me lleva directamente hasta Holbox?',
+        a3: 'El traslado terrestre llega al puerto de Chiquilá. Desde ahí, tomas el ferry para cruzar a la isla de Holbox.',
+        q4: '¿El servicio incluye los boletos del ferry?',
+        a4: 'Contamos con servicio sencillo y opciones todo incluido. Los boletos del ferry dependen de la opción que elijas; te confirmamos qué incluye tu cotización.',
+        q5: '¿Cuánto cuesta el traslado a Chiquilá?',
+        a5: 'El precio depende del lugar de recogida, el número de pasajeros y el tipo de servicio. Solicita tu cotización personalizada por WhatsApp.',
+        q6: '¿Cuántas personas pueden viajar?',
+        a6: 'Tenemos opciones de transporte para parejas, familias y grupos. Indícanos cuántas personas viajan para recomendarte la unidad adecuada.',
+        q7: '¿Puedo reservar con anticipación?',
+        a7: 'Sí, puedes solicitar tu reservación con anticipación para consultar disponibilidad y coordinar tu traslado.',
+        q8: '¿Necesito pagar por adelantado?',
+        a8: 'Para tu comodidad, no solicitamos anticipo. El pago total se realiza al momento de abordar la unidad, de acuerdo con las condiciones confirmadas de tu reservación.',
+        q9: '¿También ofrecen viajes de regreso?',
+        a9: 'Sí, puedes consultar nuestro servicio sencillo o redondo para organizar tu traslado de ida y regreso.'
       },
       contact: {
         tag: 'Reservaciones', title: 'Reserva tu <em>traslado</em>',
@@ -1732,7 +1893,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         desc: 'Traslados privados entre el Aeropuerto de Cancún y el muelle de Chiquilá — tu conexión directa hacia Isla Holbox.',
         navHeading: 'Navegación', ratesHeading: 'Tarifas', contactHeading: 'Contacto',
         rate1: 'Sedán 1-3 — $2,500 MXN', rate2: 'Van Confort 4-5 — $3,000 MXN', rate3: 'Van XL 6-8 — $3,500 MXN',
-        reviews: 'Reseñas', form: 'Formulario',
+        reviews: 'Reseñas', faq: 'Preguntas frecuentes', form: 'Formulario',
         copyright: '&copy; 2026 Holbox Turístico. Todos los derechos reservados.'
       },
       waFloat: { ariaLabel: 'Contactar por WhatsApp' },
@@ -1817,7 +1978,30 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         lead: 'The best guarantee is the experience of those who\'ve already traveled with us to Holbox.',
         cta: 'Share your experience →',
         r1: { text: '"Excellent service at a fair price, cars in good condition and friendly staff"', role: 'Google review' },
-        r2: { text: '"A perfect experience, totally adapted to our needs. The driver was waiting for us at the ferry terminal on our return from Holbox and took us to Mérida. Efficient service, friendly and attentive staff, and excellent value for money. Highly recommended!"', role: 'Google review' }
+        r2: { text: '"A perfect experience, totally adapted to our needs. The driver was waiting for us at the ferry terminal on our return from Holbox and took us to Mérida. Efficient service, friendly and attentive staff, and excellent value for money. Highly recommended!"', role: 'Google review' },
+        r3: { text: '"Very good service - they helped me move 50 people with different schedules, etc., and they were always punctual and comfortable! 100% recommended"', role: 'Google review' }
+      },
+      faq: {
+        tag: 'We answer your questions', title: 'Frequently asked <em>questions</em>',
+        lead: 'Clear information before you book your transportation to Holbox.',
+        q1: 'What service does Holbox Turístico Transfer offer?',
+        a1: 'We offer private transportation from Cancún Airport, Cancún and the Riviera Maya to the port of Chiquilá, where you connect with the ferry to Holbox.',
+        q2: 'Is the transportation private or shared?',
+        a2: 'Our service is private, ideal for couples, families and groups who want to travel comfortably without sharing the vehicle with other passengers.',
+        q3: 'Does the transportation take me all the way to Holbox?',
+        a3: 'The ground transfer takes you to the port of Chiquilá. From there, you take the ferry to cross to Holbox Island.',
+        q4: 'Does the service include the ferry tickets?',
+        a4: 'We offer a basic service and all-inclusive options. Ferry tickets depend on the option you choose; we\'ll confirm what your quote includes.',
+        q5: 'How much does the transfer to Chiquilá cost?',
+        a5: 'The price depends on the pickup location, the number of passengers and the type of service. Request your personalized quote via WhatsApp.',
+        q6: 'How many people can travel?',
+        a6: 'We have transportation options for couples, families and groups. Tell us how many people are traveling and we\'ll recommend the right vehicle.',
+        q7: 'Can I book in advance?',
+        a7: 'Yes, you can request your booking in advance to check availability and coordinate your transfer.',
+        q8: 'Do I need to pay in advance?',
+        a8: 'For your convenience, we don\'t require a deposit. Full payment is made when you board the vehicle, according to the conditions confirmed in your booking.',
+        q9: 'Do you also offer return trips?',
+        a9: 'Yes, you can ask about our one-way or round-trip service to arrange your transfer there and back.'
       },
       contact: {
         tag: 'Reservations', title: 'Book your <em>transfer</em>',
@@ -1850,7 +2034,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         desc: 'Private transfers between Cancún Airport and the Chiquilá pier — your direct connection to Holbox Island.',
         navHeading: 'Navigation', ratesHeading: 'Rates', contactHeading: 'Contact',
         rate1: 'Sedan 1-3 — $2,500 MXN', rate2: 'Comfort Van 4-5 — $3,000 MXN', rate3: 'XL Van 6-8 — $3,500 MXN',
-        reviews: 'Reviews', form: 'Form',
+        reviews: 'Reviews', faq: 'FAQ', form: 'Form',
         copyright: '&copy; 2026 Holbox Turístico. All rights reserved.'
       },
       waFloat: { ariaLabel: 'Contact via WhatsApp' },
@@ -2095,6 +2279,22 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
     });
   }, { threshold: 0.09, rootMargin: '0px 0px -32px 0px' });
   revealEls.forEach(function (el) { revealIO.observe(el); });
+
+  /* ---- FAQ ACCORDION ---- */
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var willOpen = !item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (o) {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
   /* ---- BOOKING FORM → WhatsApp ---- */
   var form = document.getElementById('booking-form');
